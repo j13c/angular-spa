@@ -1,0 +1,19 @@
+<h1 class="animated fadeIn fast">Resultado de la busqueda: <small>{{ termino }}</small></h1>
+<hr>
+
+<div class="row animated fadeIn" *ngIf="heroes.length == 0">
+    <div class="col-md-12">
+        <div class="alert alert-primary alert-dismissible fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                <span class="sr-only">Close</span>
+            </button>
+            <strong>No existe</strong> registro de heroes para <strong>{{ termino }} </strong>.
+        </div>
+    </div>
+</div>
+
+
+<div class="card-columns">
+    <app-heroe-card (heroeTarget)="verHeroe($event)" [heroe]="heroe" [idx]="heroe.idx" *ngFor="let heroe of heroes"></app-heroe-card>
+</div>
